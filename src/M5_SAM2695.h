@@ -52,6 +52,8 @@ class M5_SAM2695 {
     void setMasterVolume(uint8_t level);             // 0-127
     void setVolume(uint8_t channel, uint8_t level);  // 0-127
 
+    void setExpression(uint8_t channel, uint8_t value);  // 0-127
+
     void setReverb(uint8_t channel, uint8_t program, uint8_t level, uint8_t delayfeedback);
 
     void setChorus(uint8_t channel, uint8_t program, uint8_t level, uint8_t feedback, uint8_t chorusdelay);

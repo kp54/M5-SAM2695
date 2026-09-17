@@ -59,6 +59,11 @@ void M5_SAM2695::setVolume(uint8_t channel, uint8_t level) {
     sendCMD(CMD_CONTROL_CHANGE, sizeof(CMD_CONTROL_CHANGE));
 }
 
+void M5_SAM2695::setExpression(uint8_t channel, uint8_t value) {
+    uint8_t CMD_CONTROL_CHANGE[] = {(uint8_t)(MIDI_CMD_CONTROL_CHANGE | (channel & 0x0f)), 0x0b, value};
+    sendCMD(CMD_CONTROL_CHANGE, sizeof(CMD_CONTROL_CHANGE));
+}
+
 void M5_SAM2695::setReverb(uint8_t channel, uint8_t program, uint8_t level, uint8_t delayfeedback) {
     uint8_t CMD_CONTROL_CHANGE_1[] = {(uint8_t)(MIDI_CMD_CONTROL_CHANGE | (channel & 0x0f)), 0x50,
                                       (uint8_t)(program & 0x07)};
